@@ -1,0 +1,219 @@
+{% extends "base.html" %}
+{% block content %}
+
+{% with messages = get_flashed_messages(with_categories=true) %}
+{% if messages %}
+{% for category, message in messages %}
+<div class="alert alert-{{category}} alert-dismissible fade show" role="alert">
+  <strong>Hi !</strong> {{message}}
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+{% endfor %}
+{% endif %}
+{% endwith %}
+<!-- Main Container -->
+<div class="container containera">
+  <!-- Header Section -->
+  <div class="d-flex justify-content-between align-items-center mb-4">
+    <h2 class="form-title">Add/Edit Post</h2>
+    <a href="/dashboard" class="btn btn-back"><i class="bi bi-arrow-left-circle me-1"></i> Back to Posts</a>
+  </div>
+
+  <!-- Post Form -->
+  <div class="card">
+    <div class="card-header">
+      <i class="bi bi-pencil-square me-2"></i>Add or Edit Post
+    </div>
+    <div class="card-body">
+      <form action="{{val}}" method="post" enctype="multipart/form-data">
+        <!-- Post Title -->
+        <div class="form-group">
+          <label for="postTitle" class="form-label">Post Title</label>
+          <input type="text" class="form-control" id="postTitle" name="postTitle" required
+            placeholder="Enter post title" value="{{Target_post['Post_Title']}}">
+        </div>
+
+        <!-- Post Content -->
+        <div class="form-group">
+          <label for="postContent" class="form-label">Post Content</label>
+          <textarea class="form-control" id="postContent" name="postContent" rows="8" required
+            placeholder="Enter post content"> {{Target_post['Post_Content']}} </textarea>
+        </div>
+
+        <!-- Post Author -->
+        <div class="form-group">
+          <label for="postAuthor" class="form-label">Post Author</label>
+          <input type="text" class="form-control" id="postAuthor" name="postAuthor" required
+            placeholder="Enter author name" value=" {{Target_post['Post_Author']}} ">
+        </div>
+        <!-- Post Slug -->
+        <div class="form-group">
+          <label for="postSlug" class="form-label">Post Slug</label>
+          <input type="text" class="form-control" id="postSlug" name="postSlug" required placeholder="Enter slug name"
+            value=" {{Target_post['Post_Slug']}} ">
+        </div>
+        <!-- Post Img -->
+        <div class="mb-3 {{active1}}">
+          <label for="imageUpload" class="form-label">Previos Image</label>
+
+          <img src="/{{Target_post['Post_Image']}} " alt="No Image" height="111px">
+
+        </div>
+        <div class="mb-3">
+
+          <label for="imageUpload" class="form-label">Upload Image</label>
+          <input class="form-control" type="file" id="imageUpload" name="file" accept="image/*" required>
+        </div>
+
+        <!-- Submit Button -->
+        <div class="d-flex justify-content-end mt-4">
+          <button type="submit" class="btn btn-save"><i class="bi bi-save me-1"></i> Save Post</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+
+
+<!-- style  -->
+<style>
+  .active{
+   display: none;
+  }
+  body {
+    background-color: #f8f9fa;
+    font-family: 'Arial', sans-serif;
+  }
+
+  .containera {
+    max-width: 900px;
+    margin-top: 60px;
+  }
+
+  .btn-custom {
+    background-color: #007bff;
+    color: white;
+    border-radius: 30px;
+    padding: 12px 30px;
+  }
+
+  .btn-custom:hover {
+    background-color: #0056b3;
+  }
+
+  .btn-back {
+    background-color: #28a745;
+    color: white;
+    border-radius: 30px;
+    padding: 12px 30px;
+  }
+
+  .btn-back:hover {
+    background-color: #218838;
+  }
+
+  .form-group {
+    margin-bottom: 20px;
+  }
+
+  .form-control {
+    border-radius: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  .form-label {
+    font-weight: bold;
+  }
+
+  .form-title {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #343a40;
+    margin-bottom: 40px;
+  }
+
+  .card {
+    border-radius: 15px;
+    overflow: hidden;
+  }
+
+  .card-header {
+    background-color: #007bff;
+    color: white;
+    font-size: 1.25rem;
+    font-weight: 700;
+    text-align: center;
+  }
+
+  .card-body {
+    background-color: white;
+    padding: 30px;
+    border-radius: 15px;
+  }
+
+  .btn-save {
+    font-size: 16px;
+    font-weight: bold;
+    padding: 10px 20px;
+    background-color: #ffc107;
+    color: white;
+    border-radius: 25px;
+    width: 150px;
+    text-align: center;
+  }
+
+  .btn-save:hover {
+    background-color: #e0a800;
+  }
+
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .container {
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+
+    .form-title {
+      font-size: 1.5rem;
+    }
+
+    .form-control {
+      font-size: 14px;
+    }
+
+    .btn-save {
+      width: 100%;
+      font-size: 14px;
+    }
+
+    .btn-back {
+      width: 100%;
+      font-size: 14px;
+    }
+  }
+
+  @media (max-width: 576px) {
+
+    .btn-back,
+    .btn-save {
+      padding: 12px 10px;
+      font-size: 14px;
+    }
+
+    .form-title {
+      font-size: 1.3rem;
+    }
+
+    .form-group {
+      margin-bottom: 15px;
+    }
+
+    .card-body {
+      padding: 20px;
+    }
+  }
+</style>
+
+
+{% endblock %}

@@ -1,0 +1,94 @@
+{% extends "base.html" %}
+{% block content %}
+
+
+
+  <!-- Blog Header -->
+  <section class="blog-header py-5 text-center">
+    <div class="container">
+      <h1 class="display-5 fw-bold">Our Latest Blog Posts</h1>
+      <p class="lead">Read tips, tutorials, and updates from our team.</p>
+    </div>
+  </section>
+
+  <!-- Blog Section -->
+  <section class="py-5 bg-light">
+    <div class="container">
+      <div class="row g-4">
+        {% for post_detel in all_post%}
+        <!-- Blog Post Card 1 -->
+        <div class="col-md-4">
+          <div class="card blog-card h-100 shadow-sm">
+           <a href="/post/{{post_detel['Post_Slug']}}"><img src="/{{post_detel['Post_Image']}}"  class="card-img-top" alt="Blog Image" >
+           </a> 
+            <div class="card-body">
+              <h5 class="card-title"><a href="/post/{{post_detel['Post_Slug']}}">{{post_detel['Post_Title']}}</a></h5>
+              <p class="card-text">{{(post_detel['Post_Content'])[:111]}}...</p>
+              <a href="/post/{{post_detel['Post_Slug']}}" class="btn btn-sm btn-outline-primary">Read More</a>
+            </div>
+          </div>
+        </div>
+        {%endfor%}
+
+    <!-- Navigation Section Above Footer -->
+      <div class="container mt-4">
+        <div class="d-flex justify-content-between">
+            <a href="{{next[0]}}" class="btn btn-primary rounded-pill px-4 py-2 text-white hover-btn">Previous</a>
+            <a href="{{next[1]}}" class="btn btn-primary rounded-pill px-4 py-2 text-white hover-btn">Next</a>
+        </div>
+    </div>
+  </section>
+
+
+
+
+  <style>
+    .blog-header {
+      background: linear-gradient(to right, #0d6efd, #6610f2);
+      color: white;
+    }
+
+    .blog-card img {
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .blog-card:hover {
+      transform: translateY(-5px);
+      transition: 0.3s;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    }
+
+    .card-title a {
+      color: #0d6efd;
+      text-decoration: none;
+    }
+
+    .card-title a:hover {
+      text-decoration: underline;
+    }
+
+      .hover-btn {
+        transition: all 0.3s ease;
+    }
+
+    .hover-btn:hover {
+        background-color: #0056b3;
+        color: #fff;
+        transform: translateY(-3px);
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    .hover-btn {
+        transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .hover-btn:hover {
+        background: linear-gradient(135deg, #2575fc, #6a11cb);
+        transform: translateY(-5px);
+        /* Slightly lifts the button */
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+    }
+
+  </style>
+  {% endblock %}

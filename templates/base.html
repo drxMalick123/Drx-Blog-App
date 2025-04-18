@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>{{paramiter["title"]}} - {{paramiter["subtitle"]}}</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+</head>
+<body>
+
+
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top  navbarBydrx">
+  <div class="container">
+    <!-- Company Logo Left -->
+    <a class="navbar-brand fw-bold" target="_blank" href="/">
+      <img src="{{ url_for('static', filename='logo.jpeg') }}" alt="" width="30" height="30" class="d-inline-block align-text-top">
+      {{paramiter["title"]}}
+    </a>
+
+    <!-- Toggler Button -->
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNava">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- Navbar Links -->
+    <div class="collapse navbar-collapse" id="navbarNava">
+      <ul class="navbar-nav ms-auto " >
+        <li class="nav-item"><a class="nav-link navbar_text_Bydrx" href="/">Home</a></li>
+        <li class="nav-item"><a class="nav-link navbar_text_Bydrx" href="/about">About</a></li>
+        <li class="nav-item"><a class="nav-link navbar_text_Bydrx" href="/blog">Blog</a></li>
+        <li class="nav-item"><a class="nav-link navbar_text_Bydrx" href="/contact">Contact</a></li>
+
+        <!-- Dropdown Menu -->
+        <li class="nav-item dropdown  " >
+          <a class="nav-link dropdown-toggle navbar_text_Bydrx" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            More
+          </a>
+          <ul class="dropdown-menu dropdown-menu-end"  aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item" href="#">Dashboard</a></li>
+            <li><a class="dropdown-item" href="#">Profile</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="#">Logout</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+
+  <!-- Page Content -->
+  {% block content %}
+
+  
+  {% endblock %}
+
+  <!-- Footer -->
+  <footer class="bg-dark text-white text-center py-4 mt-5 navbarBydrx">
+    <div class="container">
+      <div class="mb-3 " >
+        <a href="https://www.facebook.com" target="_blank" class="text-white me-3">
+          <i class="bi bi-facebook" style="font-size: 1.5rem;"></i>
+        </a>
+        <a href="https://github.com" target="_blank" class="text-white me-3">
+          <i class="bi bi-github" style="font-size: 1.5rem;"></i>
+        </a>
+        <a href="https://www.youtube.com" target="_blank" class="text-white">
+          <i class="bi bi-youtube" style="font-size: 1.5rem;"></i>
+        </a>
+      </div>
+      <p class="mb-0">&copy; 2025 MySite. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script> -->
+  <!-- Bootstrap 5, Popper.js, and Bootstrap JS -->
+<!-- <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script> -->
+<!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script> -->
+
+<!-- <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script> -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script> -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script> -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  
+</body>
+</html>
+<style>
+   .navbar_text_Bydrx{
+    color: rgb(255, 255, 255);
+    
+}
+</style>

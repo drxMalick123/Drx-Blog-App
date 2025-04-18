@@ -1,0 +1,103 @@
+{% extends "base.html" %}
+{% block content %}
+
+
+
+<!-- Header Section -->
+<section class="contact-header text-center py-5">
+  <div class="container">
+    <h1 class="display-5 fw-bold">Get in Touch</h1>
+    <p class="lead">We’d love to hear from you! Fill out the form below or reach us through the contact details.</p>
+  </div>
+</section>
+{% with messages = get_flashed_messages(with_categories=true) %}
+{% if messages %}
+{% for category, message in messages %}
+<div class="alert alert-{{category}} alert-dismissible fade show" role="alert">
+  <strong>Hi !</strong> {{message}}
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+{% endfor %}
+{% endif %}
+{% endwith %}
+
+<!-- Contact Section -->
+<section class="py-5 bg-light">
+  <div class="container">
+    <div class="row g-4">
+      <!-- Contact Form -->
+      <div class="col-md-6">
+        <h4>Send Us a Message</h4>
+        <form action="/contact" method="post">
+          <div class="mb-3">
+            <label class="form-label">Name</label>
+            <input type="text" class="form-control" name="name" placeholder="Your name" required>
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Email</label>
+            <input type="email" class="form-control" name="email" placeholder="Your email" required>
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Phone Number</label>
+            <input type="tel" class="form-control" name="phoneno" placeholder="Your Phone Number" pattern="^\d{10}$"
+              maxlength="10" inputmode="numeric" required>
+          </div>
+
+
+          <div class="mb-3">
+            <label class="form-label">Message</label>
+            <textarea class="form-control" rows="5" name="msg" placeholder="Your message" required></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary px-4">Send Message</button>
+        </form>
+      </div>
+
+      <!-- Contact Info -->
+      <div class="col-md-6">
+        <h4>Contact Information</h4>
+        <div class="contact-info mt-3">
+          <p><i class="bi bi-geo-alt-fill"></i> {{paramiter["your_address"]}}</p>
+          <p><i class="bi bi-telephone-fill"></i> {{paramiter["your_phoneNo"]}}</p>
+          <p><i class="bi bi-envelope-fill"></i> {{paramiter["your_email"]}}</p>
+        </div>
+        <div class="map-container mt-4" style="height: 320px;">
+    <iframe src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3687.560051450893!2d88.3354350744494!3d22.445578979582393!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMjLCsDI2JzQ0LjEiTiA4OMKwMjAnMTYuOCJF!5e0!3m2!1sen!2sin!4v1744734310299!5m2!1sen!2sin"  allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.querySelector('input[name="phoneno"]').addEventListener('input', function(e) {
+      this.value = this.value.replace(/[^0-9]/g, '');
+    });
+  </script>
+  
+</section>
+
+
+
+<style>
+  .contact-header {
+    background: linear-gradient(to right, #0d6efd, #6610f2);
+    color: white;
+  }
+
+  .form-control:focus {
+    box-shadow: none;
+    border-color: #6610f2;
+  }
+
+  .map-container iframe {
+    width: 100%;
+    height: 100%;
+    border: 0;
+    border-radius: 0.5rem;
+  }
+
+  .contact-info i {
+    font-size: 1.5rem;
+    margin-right: 10px;
+    color: #0d6efd;
+  }
+</style>
+{% endblock %}
