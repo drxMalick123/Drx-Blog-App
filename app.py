@@ -40,7 +40,7 @@ class Contract(db.Model):
 # define table in data base for post
 class Post(db.Model):
     __tablename__ ='post'
-    slno = db.Column(db.Integer, primary_key=True)
+    slno = db.Column(db.Integer, primary_key=True, autoincrement=True)
     Post_Title = db.Column(db.String(80), nullable=False)
     Post_Content = db.Column(db.String(80), nullable=False)
     Post_Author = db.Column(db.String(80), nullable=False)
