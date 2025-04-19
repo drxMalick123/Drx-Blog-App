@@ -238,7 +238,7 @@ def add_post():
         name1.append(request.form.get('postSlug'))
         name1.append(img)
         # print(f"my name = {name1[0]} mail = {name1[1]} phone no = {name1[2]} msg = {name1[3]}" )
-        entry = Post(Post_Title = name1[0] ,  Post_Content= name1[1] ,Post_Author= name1[2],Post_Slug=name1[3] ,date=datetime.datetime.now(),Post_Image=name1[4])
+        entry = Post(Post_Title = name1[0] ,  Post_Content= name1[1] ,Post_Author= name1[2],Post_Slug=name1[3],Post_Image=name1[4])
         db.session.add(entry)
         db.session.commit()
  
