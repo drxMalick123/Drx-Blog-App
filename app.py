@@ -46,7 +46,7 @@ class Post(db.Model):
     Post_Author = db.Column(db.String(80), nullable=False)
     Post_Slug = db.Column(db.String(80), nullable=False)
     Post_Image = db.Column(db.String(80), nullable=True)
-    date = db.Column(db.String(80), nullable=False)
+    date = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
 
 #for admin logout
 @app.route("/logout")
@@ -254,5 +254,6 @@ if __name__ == '__main__':
         db.create_all()
 
     app.run(host='0.0.0.0', port=10000, debug=True)
+
 
 
