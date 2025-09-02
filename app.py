@@ -36,14 +36,14 @@ class Contract(db.Model):
     User_Name = db.Column(db.String(80), nullable=False)
     User_Email = db.Column(db.String(80), nullable=False)
     User_PhoneNo = db.Column(db.Integer, nullable=False)
-    User_Msg = db.Column(db.String(80), nullable=False)
+    User_Msg = db.Column(db.String(8011), nullable=False)
 
 # define table in data base for post
 class Post(db.Model):
     __tablename__ ='post'
     slno = db.Column(db.Integer, primary_key=True, autoincrement=True)
     Post_Title = db.Column(db.String(80), nullable=False)
-    Post_Content = db.Column(db.String(80), nullable=False)
+    Post_Content = db.Column(db.String(1111180), nullable=False)
     Post_Author = db.Column(db.String(80), nullable=False)
     Post_Slug = db.Column(db.String(80), nullable=False)
     Post_Image = db.Column(db.String(80), nullable=True)
@@ -255,6 +255,7 @@ if __name__ == '__main__':
         db.create_all()
 
     app.run(host='0.0.0.0', port=10000, debug=True)
+
 
 
 
