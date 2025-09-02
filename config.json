@@ -2,7 +2,7 @@
     "para": {
         "title": "drx",
         "local_server": "True",
-        "local_url": "mysql+pymysql://root:nCQmUaXtDHkHYKfJPRiEPrbwffPVpLGO@metro.proxy.rlwy.net:59717/railway",
+        "local_url": "mysql+pymysql://u561919214_robostemia_63:+Y7cAi5a%3bM@srv1950.hstgr.io:3306/u561919214_django_db?charset=utf8mb4",
         "produ_url": "mysql+pymysql://root:@localhost/drxserver",
         "blog_dec": "ml coding by Drx",
         "post_no": 6,
@@ -13,3 +13,4 @@
         ,"your_email":"info@mysite.com"
     }
 }
+
