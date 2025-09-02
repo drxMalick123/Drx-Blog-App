@@ -250,5 +250,8 @@ if __name__ == '__main__':
         # Ensure the upload folder exists
     if not os.path.exists(UPLOAD_FOLDER):
         os.makedirs(UPLOAD_FOLDER)
-    
+    with app.app_context():
+    db.create_all()
+
     app.run(host='0.0.0.0', port=10000, debug=True)
+
